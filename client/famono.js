@@ -1,5 +1,5 @@
 Template.simple.rendered = function() {
-  window.mainContext = Engine.createContext();
+  var mainContext = Engine.createContext();
 
   mainContext.setPerspective(200);
 
