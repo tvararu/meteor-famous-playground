@@ -1,4 +1,4 @@
-meteor-famous-playground
+Meteor + Famous Playground
 ========================
 
 Kitchen sink for my random Meteor/Famous ideas and proofs of concept.
