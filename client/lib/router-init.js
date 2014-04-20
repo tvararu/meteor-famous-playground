@@ -6,4 +6,5 @@ Router.map(function() {
   this.route('collection');
   this.route('deck');
   this.route('drag');
+  this.route('clear');
 });
