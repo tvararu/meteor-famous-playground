@@ -1,3 +1,5 @@
+// The simplest Famous example: a centered square.
+
 Template.simple.rendered = function() {
   // Adds the `.famous-container` div to the <body> element, sets the
   // fpsCap to 60, and starts the render loop.

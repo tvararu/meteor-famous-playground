@@ -1,3 +1,5 @@
+// A visual comparison of the Snap and Spring transitions.
+
 Template.snapspring.rendered = function() {
   var mainContext = Engine.createContext();
 

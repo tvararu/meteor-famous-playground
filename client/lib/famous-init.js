@@ -14,6 +14,7 @@ Meteor.startup(function() {
   window.Transform = require('famous/core/Transform');
   window.Draggable = require('famous/modifiers/Draggable');
   window.StateModifier = require('famous/modifiers/StateModifier');
+  window.RenderController = require("famous/views/RenderController");
 
   window.Scrollview = require('famous/views/Scrollview');
   window.HeaderFooterLayout = require("famous/views/HeaderFooterLayout");
