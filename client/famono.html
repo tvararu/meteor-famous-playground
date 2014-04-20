@@ -1,5 +1,10 @@
 <head>
   <title>Meteor + Famous Playground</title>
+  
+  <!-- Blatanly stolen Meteor favicon. -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  
   <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -8,3 +13,16 @@
 
 <body>
 </body>
+
+<template name="home">
+  <ul>
+    <li><a href="{{pathFor 'simple'}}">Simple square</a></li>
+    <li><a href="{{pathFor 'about'}}">Something else</a></li>
+  </ul>
+</template>
+
+<template name="simple"></template>
+
+<template name="about">
+  <p>lorem about!</p>
+</template>
