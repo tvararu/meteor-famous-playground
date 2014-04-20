@@ -15,10 +15,13 @@
 </body>
 
 <template name="home">
-  <ul>
-    <li><a href="{{pathFor 'simple'}}">Simple square</a></li>
-    <li><a href="{{pathFor 'snapspring'}}">Snap vs. Spring transition</a></li>
-  </ul>
+  <div class="container">
+    <p>Source code is on <a href="https://github.com/tvararu/meteor-famous-playground" target="_blank">Github</a>.</p>
+    <ul>
+      <li><a href="{{pathFor 'simple'}}">Simple square</a></li>
+      <li><a href="{{pathFor 'snapspring'}}">Snap vs. Spring transition</a></li>
+    </ul>
+  </div>
 </template>
 
 <template name="simple"></template>
