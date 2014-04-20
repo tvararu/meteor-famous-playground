@@ -3,4 +3,5 @@ Router.map(function() {
   this.route('simple');
   this.route('snapspring');
   this.route('color');
+  this.route('collection');
 });
