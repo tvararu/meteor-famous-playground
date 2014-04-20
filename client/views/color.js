@@ -3,6 +3,9 @@
 // animating the CSS property, but by overlaying two Surfaces and
 // opacitating them.
 
+// Relevant StackOverflow question:
+// https://stackoverflow.com/questions/23117218/proper-way-to-transition-color-or-non-transform-opacity-css-properties-in-famo
+
 Template.color.rendered = function() {
   var mainContext = Engine.createContext();
 

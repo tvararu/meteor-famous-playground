@@ -5,4 +5,5 @@ Router.map(function() {
   this.route('color');
   this.route('collection');
   this.route('deck');
+  this.route('drag');
 });
