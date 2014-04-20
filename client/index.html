@@ -16,12 +16,30 @@
 
 <template name="home">
   <div class="container">
+    <h3>Meteor + Famous Playground</h3>
+    
+    <p>Kitchen sink for my random Meteor + Famous ideas and proofs of concept. Navigate to an example, click around on stuff, then use the back button to get back here.</p>
+    
     <p>Source code is on <a href="https://github.com/tvararu/meteor-famous-playground/tree/master/client/views" target="_blank">Github</a>.</p>
+    
     <ul>
-      <li><a href="{{pathFor 'simple'}}">Simple square</a></li>
-      <li><a href="{{pathFor 'snapspring'}}">Snap vs. Spring transition</a></li>
-      <li><a href="{{pathFor 'color'}}">Color transition</a></li>
-      <li><a href="{{pathFor 'collection'}}">Meteor collection</a></li>
+      <li>
+        <h3><a href="{{pathFor 'simple'}}">Simple square</a></h3>
+        <p>The simplest Famous example: a centered square.</p>
+      </li>
+      <li>
+        <h3><a href="{{pathFor 'snapspring'}}">Snap vs. Spring transition</a></h3>
+        <p>A visual comparison of the Snap and Spring transitions.</p>
+      </li>
+      <li>
+        <h3><a href="{{pathFor 'color'}}">Color transition</a></h3>
+        <p>An example color transition. The reason this is interesting is because it's accomplished not by animating the CSS property, but by overlaying two Surfaces and opacitating them.</p>
+      </li>
+      <li>
+        <h3><a href="{{pathFor 'collection'}}">Meteor collection</a></h3>
+        <p>The first example that actually uses Meteor for anything. Monitor a collection, and update the content of a surface reactively. View this example in two browser windows for it to make actual sense.
+        </p>
+      </li>
     </ul>
   </div>
 </template>
