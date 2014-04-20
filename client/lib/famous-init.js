@@ -9,6 +9,7 @@ Meteor.startup(function() {
   window.Engine = require('famous/core/Engine');
 
   window.View = require('famous/core/View');
+  window.Deck = require('famous/views/Deck');
   window.Surface = require('famous/core/Surface');
   window.Modifier = require('famous/core/Modifier');
   window.Transform = require('famous/core/Transform');
