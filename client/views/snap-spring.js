@@ -7,21 +7,28 @@ Template.snapspring.rendered = function() {
 
   mainContext = mainContext.add(originMod);
 
+  var s = 200;
+
+  if (window.innerWidth < 600) {
+    // Screen is too tiny.
+    s = 100;
+  }
+
   var square1 = new Surface({
-    size: [200, 200],
-    content: 'Snap Transition.',
+    size: [s, s],
+    content: 'Snap.',
     properties: {
-      lineHeight: '200px',
+      lineHeight: s + 'px',
       textAlign: 'center'
     },
     classes: ['secondary-bg']
   });
 
   var square2 = new Surface({
-    size: [200, 200],
-    content: 'Spring Transition.',
+    size: [s, s],
+    content: 'Spring.',
     properties: {
-      lineHeight: '200px',
+      lineHeight: s + 'px',
       textAlign: 'center'
     },
     classes: ['secondary-bg']
@@ -29,14 +36,14 @@ Template.snapspring.rendered = function() {
 
   // Initialize square1 position.
   var move1 = new Modifier({
-    transform: Transform.translate(-200, -200, 0)
+    transform: Transform.translate(-s, -s, 0)
   });
 
   mainContext.add(move1).add(square1);
 
   // Initialize square2 position.
   var move2 = new Modifier({
-    transform: Transform.translate(200, -200, 0)
+    transform: Transform.translate(s, -s, 0)
   });
 
   mainContext.add(move2).add(square2);
@@ -56,16 +63,16 @@ Template.snapspring.rendered = function() {
   };
 
   // Toggle between different positions, using the appropriate transitions.
-  var tick = true;
+  var toggle = true;
   Engine.on('click', function() {
-    if (tick) {
-      move1.setTransform(Transform.translate(-200, 200, 0), trans1);
-      move2.setTransform(Transform.translate(200, 200, 0), trans2);
-      tick = false;
+    if (toggle) {
+      move1.setTransform(Transform.translate(-s, s, 0), trans1);
+      move2.setTransform(Transform.translate(s, s, 0), trans2);
+      toggle = false;
     } else {
-      move1.setTransform(Transform.translate(-200, -200, 0), trans1);
-      move2.setTransform(Transform.translate(200, -200, 0), trans2);
-      tick = true;
+      move1.setTransform(Transform.translate(-s, -s, 0), trans1);
+      move2.setTransform(Transform.translate(s, -s, 0), trans2);
+      toggle = true;
     }
   });
 };
