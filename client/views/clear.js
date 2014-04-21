@@ -132,9 +132,9 @@ Template.clear.rendered = function() {
 
   // Content first, so it appears underneath the Header and Footer.
   layout.content.add(contentView);
-  
+
   layout.header.add(headerView);
-  
+
   layout.footer.add(footerView);
 
   mainContext.add(layout);
