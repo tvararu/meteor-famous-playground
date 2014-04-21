@@ -49,9 +49,9 @@ Template.clear.rendered = function() {
       var velo = _.reduce(draggable.getPosition(), function(memo, num) {
         return memo + Math.abs(num);
       }, 0);
-
+      
       velo = (velo / 100) * 0.01;
-
+      
       draggable.setPosition([0, 0, 0], {
         method: 'snap',
         period: 300,
@@ -125,7 +125,7 @@ Template.clear.rendered = function() {
   headerView.on('click', function() {
     addSurface('Surface');
   });
-  
+
   footerView.on('click', function() {
     removeSurface();
   });
