@@ -4,7 +4,7 @@ Template.home.rendered = function() {
   var mainContext = Engine.createContext();
 
   var contentView = new Scrollview({
-    size: [undefined, true]
+    size: [undefined, undefined]
   });
 
   window.content = new Surface({
