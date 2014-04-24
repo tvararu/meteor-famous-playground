@@ -19,7 +19,7 @@ Template.clear.rendered = function() {
     var tempView = new View();
 
     var originMod = new StateModifier({
-      origin: [0, 1]
+      origin: [0.5, 1.0]
     });
 
     var sizeMod = new StateModifier({
@@ -29,6 +29,41 @@ Template.clear.rendered = function() {
     var transMod = new StateModifier({
       transform: Transform.rotateX(Math.PI / 2)
     });
+
+    var node = tempView.add(sizeMod).add(originMod).add(transMod);
+
+    var tickMod = new StateModifier({
+      origin: [0.0, 0.0]
+    });
+
+    var crossMod = new StateModifier({
+      origin: [1.0, 0.0]
+    });
+
+    var tick = new Surface({
+      size: [50, 50],
+      content: 'T',
+      properties: {
+        lineHeight: '50px',
+        textAlign: 'center'
+      },
+      classes: ['success-bg']
+    });
+
+    var cross = new Surface({
+      size: [50, 50],
+      content: 'X',
+      properties: {
+        lineHeight: '50px',
+        textAlign: 'center'
+      },
+      classes: ['primary-bg']
+    });
+
+    node.add(tickMod).add(tick);
+    node.add(crossMod).add(cross);
+    tickMod.setOpacity(0.0);
+    crossMod.setOpacity(0.0);
 
     var surface = new Surface({
       content: content,
@@ -71,9 +106,23 @@ Template.clear.rendered = function() {
 
     draggable.on('end', resetPosition);
 
+    var draggableMove = function() {
+      var pos = draggable.getPosition()[0];
+      
+      if (pos > 0) {
+        pos = (pos * 2) / 100;
+        tickMod.setOpacity(pos);
+      } else {
+        pos = (Math.abs(pos) * 2) / 100;
+        crossMod.setOpacity(pos);
+      }
+    };
+
+    draggable.on('update', draggableMove);
+
     surface.pipe(draggable);
 
-    tempView.add(sizeMod).add(originMod).add(transMod).add(draggable).add(surface);
+    node.add(draggable).add(surface);
 
     tempView.show = function(callback) {
       transMod.setTransform(
@@ -90,7 +139,7 @@ Template.clear.rendered = function() {
         Transform.translate(- window.innerWidth, 0, 0),
         {
           method: 'snap',
-          period: 300,
+          period: 500,
           dampingRatio: 0.6,
           velocity: 0.0
         },
@@ -103,7 +152,7 @@ Template.clear.rendered = function() {
         Transform.translate(window.innerWidth, 0, 0),
         {
           method: 'snap',
-          period: 300,
+          period: 500,
           dampingRatio: 0.6,
           velocity: 0.0
         },
@@ -113,7 +162,7 @@ Template.clear.rendered = function() {
 
     surface.pipe(contentView);
     surfaces.push(tempView);
-    
+
     tempView.show();
   };
 
