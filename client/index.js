@@ -3,11 +3,9 @@ Template.home.rendered = function() {
   // But it works.
   var mainContext = Engine.createContext();
 
-  var contentView = new Scrollview({
-    size: [undefined, undefined]
-  });
+  var contentView = new Scrollview();
 
-  window.content = new Surface({
+  var content = new Surface({
     size: [undefined, undefined],
     content: UI.render(Template.homecontent).render().toHTML()
   });
@@ -16,9 +14,11 @@ Template.home.rendered = function() {
   contentView.sequenceFrom([content]);
 
   mainContext.add(contentView);
-  
-  setTimeout(function() {
+
+  // size: [undefined, true] is borked in ScrollViews,
+  // so we have to hack around it a bit.
+  content.on('deploy', function() {
     var h = $('.famous-container .container')[0].scrollHeight + 72;
     content.setSize([undefined, h]);
-  }, 1000);
+  });
 };
