@@ -118,7 +118,7 @@ Template.clear.rendered = function() {
   };
 
   var removeSurface = function() {
-    surfaces[surfaces.length - 1].clear(function() {
+    surfaces[surfaces.length - 1].clearRight(function() {
       surfaces.pop();
     });
   };
