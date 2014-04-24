@@ -47,6 +47,14 @@ Template.clear.rendered = function() {
     });
 
     var resetPosition = function () {
+      var pos = draggable.getPosition();
+      
+      if (pos[0] === -50) {
+        tempView.clearLeft();
+      } else if (pos[0] === 50) {
+        tempView.clearRight();
+      }
+      
       var velo = _.reduce(draggable.getPosition(), function(memo, num) {
         return memo + Math.abs(num);
       }, 0);
@@ -77,7 +85,20 @@ Template.clear.rendered = function() {
       );
     };
 
-    tempView.clear = function(callback) {
+    tempView.clearLeft = function(callback) {
+      transMod.setTransform(
+        Transform.translate(- window.innerWidth, 0, 0),
+        {
+          method: 'snap',
+          period: 300,
+          dampingRatio: 0.6,
+          velocity: 0.0
+        },
+        callback
+      );
+    };
+
+    tempView.clearRight = function(callback) {
       transMod.setTransform(
         Transform.translate(window.innerWidth, 0, 0),
         {
