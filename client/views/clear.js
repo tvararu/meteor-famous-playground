@@ -41,8 +41,9 @@ Template.clear.rendered = function() {
     });
 
     var draggable = new Draggable({
-      xRange: [-220, 220],
-      yRange: [0, 0]
+      xRange: [-50, 50],
+      yRange: [0, 0],
+      scale: 0.5
     });
 
     var resetPosition = function () {
@@ -60,8 +61,7 @@ Template.clear.rendered = function() {
       });
     };
 
-    surface.on('mouseup', resetPosition);
-    surface.on('touchend', resetPosition);
+    draggable.on('end', resetPosition);
 
     surface.pipe(draggable);
 
