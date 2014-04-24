@@ -1,6 +1,4 @@
 Template.home.rendered = function() {
-  // Probably erroneous way to clear the previous Famous canvas.
-  // But it works.
   var mainContext = Engine.createContext();
 
   var contentView = new Scrollview();
@@ -15,7 +13,7 @@ Template.home.rendered = function() {
 
   mainContext.add(contentView);
 
-  // size: [undefined, true] is borked in ScrollViews,
+  // FIXME. size: [undefined, true] is borked in ScrollViews,
   // so we have to hack around it a bit.
   content.on('deploy', function() {
     var h = $('.famous-container .container')[0].scrollHeight + 72;

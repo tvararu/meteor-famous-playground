@@ -7,3 +7,9 @@ Router.map(function() {
   this.route('deck');
   this.route('drag');
 });
+
+// FIXME. I have no idea how to clean the famous container.
+// So I'll just do this.
+Router.onRun(function() {
+  $('.famous-container').remove();
+});
