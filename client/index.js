@@ -4,7 +4,7 @@ Template.home.rendered = function() {
   var contentView = new Scrollview();
 
   var content = new Surface({
-    size: [undefined, undefined],
+    size: [undefined, true],
     content: UI.render(Template.homecontent).render().toHTML()
   });
 
