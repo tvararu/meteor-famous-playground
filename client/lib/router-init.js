@@ -6,7 +6,7 @@ Router.map(function() {
   this.route('collection');
   this.route('deck');
   this.route('drag');
-});
+  this.route('clear');
 
 // FIXME. I have no idea how to clean the famous container.
 // So I'll just do this.
