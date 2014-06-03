@@ -15,8 +15,8 @@ Template.home.rendered = function() {
 
   // FIXME. size: [undefined, true] is borked in ScrollViews,
   // so we have to hack around it a bit.
-  content.on('deploy', function() {
+  Meteor.setTimeout(function() {
     var h = $('.famous-container .container')[0].scrollHeight;
     content.setSize([undefined, h]);
-  });
+  }, 100);
 };
