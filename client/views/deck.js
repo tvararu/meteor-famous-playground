@@ -28,7 +28,7 @@ Template.deck.rendered = function() {
     var temp = new Surface({
       // 'undefined' causes the surface to stretch over the
       // entire available length.
-      size: [undefined, 100],
+      size: [300, 100],
       classes: ['test'],
       properties: {
         backgroundColor: 'hsla(' + ((i*5 + i) * 10 % 360) + ', 60%, 55%, 0.8)',
